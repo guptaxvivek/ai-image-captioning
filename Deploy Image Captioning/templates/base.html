@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Captioning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://kit. fontawesome .com/a076des399.js"></script>
+
+</head>
+
+<body>
+  <!--<h1>Image Captioning</h1>-->
+    <div class="profile-card">
+        <div class="card-header">
+         <div class="container">
+
+            <div class="wrapper">
+                {% if results %}
+                <div class="image">
+                 <img src="{{results.image}}">
+                   </div>
+                    {% endif %}
+                <div class="content">
+               <div class="icon">
+                  <i class="fas fa-cloud-upload-alt"></i>
+               </div>
+               <div class="text">
+                  No file chosen, yet!
+               </div>
+            </div>
+            <div id="cancel-btn">
+               <i class="fas fa-times"></i>
+            </div>
+             </div>
+
+          <form enctype="multipart/form-data" action="/" method="POST">
+         <div class="default-btn">
+              <input type="file" id="choose-btn" name="pic">
+              </div>
+                <div class="btn">
+      <button type="submit" class="Generate-btn"> Generate</button>
+      </div>
+   </form> 
+           </div>
+            {% if results %}
+            <div class="tb">
+                <p>{{results.description}}</p>
+          </div>
+            {% endif %}
+        </div>
+      </div>
+      
+      
+   
+      <script src="{{ url_for('static', filename='base.js') }}"></script>
+</body>
+</html>
